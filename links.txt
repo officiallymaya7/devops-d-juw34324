@@ -1,2 +1,4 @@
 Repo : https://github.com/officiallymaya7/devops-d-juw34324
 Pages: https://officiallymaya7.github.io/devops-d-juw34324/
+http://127.0.0.1:64215/
+http://localhost:8080/

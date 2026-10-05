@@ -41,3 +41,33 @@ git status
 git add site/index.html
 git commit -m "Update restaurant heading"
 git push origin main
+
+
+# ===== Q2 (a): Docker =====
+docker --version
+docker build -t devops-d-juw34324:v1 .
+docker images
+docker run -d --name devops-d-juw34324 -p 8080:80 devops-d-juw34324:v1
+docker ps
+docker ps -a
+
+# ===== Q2 (b): Minikube and Deployment =====
+minikube start --driver=docker
+kubectl get nodes
+minikube image load devops-d-juw34324:v1
+minikube image ls
+kubectl apply -f deployment.yaml
+kubectl get deployments
+kubectl get pods
+
+# ===== Q2 (c): Service =====
+kubectl apply -f service.yaml
+kubectl get svc
+kubectl get endpoints devops-d-juw34324
+minikube service devops-d-juw34324 --url
+
+# ===== Q2 (d): Scaling =====
+kubectl scale deployment devops-d-juw34324 --replicas=2
+kubectl get deployments
+kubectl get pods
+kubectl get endpoints devops-d-juw34324
